@@ -3,10 +3,45 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:HttpCache"
+        xmlns:fa="clr-namespace:Meziantou.WpfFontAwesome;assembly=Meziantou.WpfFontAwesome"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="HTTP Cache" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="BtnStart" Click="BtnStart_Click">
+                <TextBlock>
+                    <Run Text="{fa:Icon Icon=Play}" Style="{StaticResource FontAwesomeSolid}" />
+                    <Run>Start</Run>
+                </TextBlock>
+            </Button>
+            <Button x:Name="BtnStop" Click="BtnStop_Click">
+                <TextBlock>
+                    <Run Text="{fa:Icon Icon=Stop}" Style="{StaticResource FontAwesomeSolid}" />
+                    <Run>Stop</Run>
+                </TextBlock>
+            </Button>
+            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+            <Button x:Name="BtnSaveConfiguration" Click="BtnSaveConfiguration_Click">
+                <TextBlock>
+                    <Run Text="{fa:Icon Icon=Save}" Style="{StaticResource FontAwesomeSolid}" />
+                    <Run>Save configuration</Run>
+                </TextBlock>
+            </Button>
+            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+            <Button Click="BtnClearCache_Click">
+                <TextBlock>
+                    <Run Text="{fa:Icon Icon=Broom}" Style="{StaticResource FontAwesomeSolid}" />
+                    <Run>Clear cache</Run>
+                </TextBlock>
+            </Button>
+        </StackPanel>
+
+        <TextBox x:Name="TbxRules" Grid.Row="1" TextChanged="TbxRules_TextChanged"
+                 AcceptsReturn="True" />
     </Grid>
 </Window>
